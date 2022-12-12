@@ -2,11 +2,14 @@
 # Copies files with a specific extension to a destination folder, preserving the folder structure
 # First argument is the source folder
 # Second argument is the destination folder
-# All arguments after the second are the file extensions to copy
+# All arguments after the second are the file extensions to copy, separated by commas
 
 $sourceFolder=$args[0]
 $destFolder=$args[1]
 $fileExtension=$args[2]
+
+$extArray = $fileExtension -split ","
+$fileExtension = $extArray -join "|"
 
 $copiedFiles = 0
 $skippedFiles = 0
